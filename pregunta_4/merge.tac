@@ -17,8 +17,23 @@ IF_END_1:                               < B5
 k := k + 1
 goto WHILE_START_1
 WHILE_END_1:                            < B6
+WHILE_START_2:                          
+ifnot i < n goto WHILE_END_2            
+t6 := a[i]                              < B7
+c[k] := t6
+i := i+1
+k := k+1
+goto WHILE_START_2
+WHILE_END_2:                            < B8
+WHILE_START_3:
+ifnot j < m goto WHILE_END_3
+t7 := b[j]                              < B9
+c[k] := t7
+j := j+1
+k := k+1
+goto WHILE_START_3
+WHILE_END_3:                            < B10
 exit
-
 
 ======================================
 == Bloques
@@ -51,7 +66,27 @@ B5:
     k := k + 1
     goto WHILE_START_1
 B6:
-    WHILE_END_1
+    WHILE_END_1:
+    WHILE_START_2:
+    ifnot i < n goto WHILE_END_2
+B7:
+    t6 := a[i]
+    c[k] := t6
+    i := i+1
+    k := k+1
+    goto WHILE_START_2      
+B8:
+    WHILE_END_2:
+    WHILE_START_3:
+    ifnot j < m goto WHILE_END_3
+B9:
+    t7 := b[j]                              
+    c[k] := t7
+    j := j+1
+    k := k+1
+    goto WHILE_START_3
+B10:
+    WHILE_END_3:                            < B10
     exit
 
 ======================================
@@ -65,3 +100,9 @@ B2 -> B3
 B3 -> B5
 B4 -> B5
 B5 -> B1
+B6 -> B8
+B6 -> B7
+B7 -> B6
+B8 -> B10
+B8 -> B9
+B9 -> B8
