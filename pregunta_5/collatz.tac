@@ -30,7 +30,7 @@ B2:
     ifnot n != 1 goto WHILE_END
 B3:
     t0 := n % 2
-    if t0 == 0 goto IF_ELSE
+    ifnot t0 == 0 goto IF_ELSE
 B4:
     n := n / 2
     goto IF_END
