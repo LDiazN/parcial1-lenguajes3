@@ -6,7 +6,7 @@ steps := 0                          < B1
 WHILE_START:                        < B2
 ifnot n != 1 goto WHILE_END
 t0 := n % 2                         < B3
-if t0 == 0 goto IF_ELSE
+ifnot t0 == 0 goto IF_ELSE
 n := n / 2                          < B4
 goto IF_END
 IF_ELSE:                            < B5
